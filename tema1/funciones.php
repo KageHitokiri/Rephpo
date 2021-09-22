@@ -6,7 +6,6 @@ $num1;
 $num2;
 $operator ="";
 
-
 function insert ($tabla, $campos) :string {
     $query = "";
     
@@ -54,4 +53,5 @@ echo insertReferencia ($tabla, $campos);
 echo update ($tabla, $campos, 1);
 echo "</br>";
 echo operation (1,2,"/");
+
 ?>
