@@ -33,7 +33,7 @@ function update (&$tabla, &$campos, $id) :string{
     return $query;
 }
 
-function operation ($num1, $num2, $operator) {
+$operation = function ($num1, $num2, $operator) {
     
     if ($operator === "+") {
         return $num1 + $num2;
@@ -46,12 +46,12 @@ function operation ($num1, $num2, $operator) {
     } else {
         return "Operación no válida";
     }    
-}
+};
 
 echo insert ($tabla, $campos);
 echo insertReferencia ($tabla, $campos);
 echo update ($tabla, $campos, 1);
 echo "</br>";
-echo operation (1,2,"/");
+echo $operation(1,2,"+");
 
 ?>
