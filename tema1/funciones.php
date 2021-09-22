@@ -2,6 +2,9 @@
 
 $tabla = "alumnos";
 $campos = array("id" => 1, "nombre" => "Saúl", "apellidos" => "Pacheco");
+$num1;
+$num2;
+$operator ="";
 
 
 function insert ($tabla, $campos) :string {
@@ -31,9 +34,24 @@ function update (&$tabla, &$campos, $id) :string{
     return $query;
 }
 
+function operation ($num1, $num2, $operator) {
+    
+    if ($operator === "+") {
+        return $num1 + $num2;
+    } elseif ($operator === "-") {
+        return $num1 - $num2;
+    } elseif ($operator === "*") {
+        return $num1 * $num2;
+    } elseif ($operator === "/") {
+        return $num1 / $num2;
+    } else {
+        return "Operación no válida";
+    }    
+}
+
 echo insert ($tabla, $campos);
-echo $campos["nombre"];
 echo insertReferencia ($tabla, $campos);
 echo update ($tabla, $campos, 1);
-
+echo "</br>";
+echo operation (1,2,"/");
 ?>
