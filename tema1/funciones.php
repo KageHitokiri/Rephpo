@@ -14,14 +14,12 @@ function insert ($tabla, $campos) :string {
     $queryValues ="";    
     $finalQuery ="";
 
-
     foreach ($campos as $campo => $valor) {
         $queryAtributes .= "$campo,";
         $queryValues .= ":$campo,";
     }
     $queryAtributes = substr($queryAtributes,0,-1);
-    $queryValues = substr($queryValues,0,-1);
-    
+    $queryValues = substr($queryValues,0,-1);    
     $finalQuery = $query.$queryAtributes.$queryValuesText.$queryValues.")</br>";
 
     return $finalQuery;
@@ -66,12 +64,8 @@ function update (&$tabla, &$campos, $columna) :string{
 
     $sentence = substr($sentence,0,-2);
     $queryWhere = " WHERE ".$getFieldName." = :".$getFieldName."</br>";
-
     $finalQuery = $queryStart.$sentence.$queryWhere;
-
     $query = "UPDATE $tabla SET nombre=:$campos[nombre], apellidos=:$campos[apellidos] WHERE ".$getFieldName." = :".$getFieldName;
-
-
 
     return $finalQuery;
 }
@@ -80,21 +74,21 @@ $operation = function ($num1, $num2, $operator):string {
     $operation ="";
 
     if ($operator === "+") {        
-        $operation = "$num1"."+"."$num2 =".($num1+$num2);
-        
+        $operation = "$num1"."+"."$num2 =".($num1+$num2);        
         return $operation;
+
     } elseif ($operator === "-") {
-        $operation = "$num1"."-"."$num2 =".($num1-$num2);
-        
+        $operation = "$num1"."-"."$num2 =".($num1-$num2);        
         return $operation;
+
     } elseif ($operator === "*") {
-        $operation = "$num1"."*"."$num2 =".($num1*$num2);
-        
+        $operation = "$num1"."*"."$num2 =".($num1*$num2);        
         return $operation.$result;
+
     } elseif ($operator === "/") {
-        $operation = "$num1"."/"."$num2 =".($num1/$num2);
-        
+        $operation = "$num1"."/"."$num2 =".($num1/$num2);        
         return $operation;
+
     } else {
         return "Operación no válida";
     }    
