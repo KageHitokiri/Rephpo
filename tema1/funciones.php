@@ -46,24 +46,55 @@ function insertReferencia (&$tabla, &$campos):string {
     return $fixedQuery;
 }
 
-function update (&$tabla, &$campos, $searchField, $idValue) :string{
-    $query = "UPDATE $tabla SET ";
-    
-    $query = "UPDATE $tabla SET nombre=:$campos[nombre], apellidos=:$campos[apellidos] WHERE $searchField = :$idValue";
+function update (&$tabla, &$campos, $columna) :string{
+    $queryStart = "UPDATE $tabla SET ";    
+    $sentence ="";
+    $queryWhere ="";
+    $getFieldName = array_key_first($campos);
+    $finalQuery ="";
+    $i = 0;
 
-    return $query;
+    foreach ($campos as $campo => $value) {
+        if ($i ==0) {
+            
+        } else {
+            $sentence .="$campo"."=:".$campo.", ";            
+        }
+        $i++;
+        
+    }
+
+    $sentence = substr($sentence,0,-2);
+    $queryWhere = " WHERE ".$getFieldName." = :".$getFieldName."</br>";
+
+    $finalQuery = $queryStart.$sentence.$queryWhere;
+
+    $query = "UPDATE $tabla SET nombre=:$campos[nombre], apellidos=:$campos[apellidos] WHERE ".$getFieldName." = :".$getFieldName;
+
+
+
+    return $finalQuery;
 }
 
-$operation = function ($num1, $num2, $operator) {
-    
-    if ($operator === "+") {
-        return $num1 + $num2;
+$operation = function ($num1, $num2, $operator):string {
+    $operation ="";
+
+    if ($operator === "+") {        
+        $operation = "$num1"."+"."$num2 =".($num1+$num2);
+        
+        return $operation;
     } elseif ($operator === "-") {
-        return $num1 - $num2;
+        $operation = "$num1"."-"."$num2 =".($num1-$num2);
+        
+        return $operation;
     } elseif ($operator === "*") {
-        return $num1 * $num2;
+        $operation = "$num1"."*"."$num2 =".($num1*$num2);
+        
+        return $operation.$result;
     } elseif ($operator === "/") {
-        return $num1 / $num2;
+        $operation = "$num1"."/"."$num2 =".($num1/$num2);
+        
+        return $operation;
     } else {
         return "Operación no válida";
     }    
@@ -71,8 +102,7 @@ $operation = function ($num1, $num2, $operator) {
 
 echo insert ($tabla, $campos);
 echo insertReferencia ($tabla, $campos);
-echo update ($tabla, $campos2);
-echo "</br>";
-echo $operation(1,2,"+");
+echo update ($tabla, $campos2,0);
+echo $operation(1,2,"-");
 
 ?>
