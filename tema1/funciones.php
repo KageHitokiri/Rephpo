@@ -44,7 +44,7 @@ function insertReferencia (&$tabla, &$campos):string {
     return $fixedQuery;
 }
 
-function update (&$tabla, &$campos, $columna) :string{
+function update (&$tabla, &$campos) :string{
     $queryStart = "UPDATE $tabla SET ";    
     $sentence ="";
     $queryWhere ="";
@@ -96,7 +96,7 @@ $operation = function ($num1, $num2, $operator):string {
 
 echo insert ($tabla, $campos);
 echo insertReferencia ($tabla, $campos);
-echo update ($tabla, $campos2,0);
+echo update ($tabla, $campos2);
 echo $operation(1,2,"-");
 
 ?>
