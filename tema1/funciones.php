@@ -70,33 +70,35 @@ function update (&$tabla, &$campos) :string{
     return $finalQuery;
 }
 
-$operation = function ($num1, $num2, $operator):string {
-    $operation ="";
+$operation = function ($num1, $num2, callable $operator):string {
+    $result = "El Resultado es: " . $operator($num1, $num2)."<br>"; 
+    return $result;
+};
 
-    if ($operator === "+") {        
-        $operation = "$num1"."+"."$num2 =".($num1+$num2);        
-        return $operation;
-
-    } elseif ($operator === "-") {
-        $operation = "$num1"."-"."$num2 =".($num1-$num2);        
-        return $operation;
-
-    } elseif ($operator === "*") {
-        $operation = "$num1"."*"."$num2 =".($num1*$num2);        
-        return $operation.$result;
-
-    } elseif ($operator === "/") {
-        $operation = "$num1"."/"."$num2 =".($num1/$num2);        
-        return $operation;
-
-    } else {
-        return "Operación no válida";
-    }    
+$suma = function ($num1, $num2) {    
+    $result = $num1."+".$num2."=".($num1+$num2) ;
+    return $result;
+};
+$resta = function ($num1, $num2) {
+    $result = $num1."-".$num2."=".($num1-$num2) ;
+    return $result;
+};
+$mult = function ($num1, $num2) {
+    $result = $num1."*".$num2."=".($num1*$num2) ;
+    return $result;
+};
+$div = function ($num1, $num2) {
+    $result = $num1."/".$num2."=".($num1/$num2) ;
+    return $result;
 };
 
 echo insert ($tabla, $campos);
 echo insertReferencia ($tabla, $campos);
 echo update ($tabla, $campos2);
-echo $operation(1,2,"-");
+echo $operation(2,5,$suma);
+echo $operation(2,5,$resta);
+echo $operation(2,5,$mult);
+echo $operation(2,5,$div);
+
 
 ?>
