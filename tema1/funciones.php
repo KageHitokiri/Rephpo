@@ -27,7 +27,9 @@ function insert ($tabla, $campos) :string {
 
 function insertReferencia (&$tabla, &$campos):string {
     $query = "insert into tabla (campos) values (valores)";
-    $fixedQuery ="";        
+    $fixedQuery ="";      
+    $queryAtributes ="";
+    $queryValues ="";   
 
     foreach ($campos as $campo => $valor) {
         $queryAtributes .= "$campo,";

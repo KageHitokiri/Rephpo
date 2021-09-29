@@ -2,8 +2,10 @@
 
 $url = "https";
 $nombre = $_GET["nombre"]??="";
-$prefijo = $_GET["prefijo"]??="";
 $nombre = trim($nombre, "/");
+$prefijo = $_GET["prefijo"]??="";
+$prefixFound = false;
+
 
 echo "Cantidad de carácteres: ".strlen($url)."<br>";
 echo "Mayusculas: ".strtoupper($url)."<br>";
@@ -13,16 +15,16 @@ if ($nombre == "") {
     $nombre = "Carlos";
 }
 
-if ($prefijo == "") {
-    $prefijo = "Sin prefijo";
-}
+$prefixFound = stripos($nombre,$prefijo);
 
 echo "Te llamas ".$nombre;
-echo $prefijo;
-
-echo parse_url();
-
-
+if ($prefijo!=null) {
+    if ($prefixFound===0) {
+        echo "Tu nombre empieza por el prefijo";
+    } else {
+        echo "Tu nombre no empieza por el prefijo";
+    }
+}
 
 
 ?>
