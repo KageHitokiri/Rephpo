@@ -16,4 +16,7 @@ echo "Te llamas ".$nombre;
 
 echo parse_url();
 
+
+
+
 ?>
