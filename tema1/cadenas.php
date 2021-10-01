@@ -9,6 +9,8 @@ $aCounter = 0;
 $modifiedName;
 $aPosition = 0;
 
+echo "<h1>Carlos Ramos Iserte - Cadenas</h1>";
+
 echo "<b>Carácteres: </b><br>";
 echo "Cantidad de carácteres: ".strlen($nombre)."<br>";
 echo "Mayusculas: ".strtoupper($nombre)."<br>";
