@@ -29,7 +29,7 @@ if ($prefijo!=null) {
     }
 }
 
-$aCounter = 'La cantidad total de letras "o" del nombre es: '.substr_count(strtoupper($nombre), "o")."<br>";
+$aCounter = 'La cantidad total de letras "a" del nombre es: '.substr_count(strtoupper($nombre), "A")."<br>";
 $modifiedName = 'Modificamos el nombre original, cambiando las letras "o" por 0s y el resultado es: '.str_ireplace("o",0,$nombre)."<br>";
 
 $aPosition = stripos($nombre, "a");
