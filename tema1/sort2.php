@@ -1,11 +1,11 @@
 <?php
 
-$temperatures = "5,7,10,40,30,13,15,6,25,26,8";
+$temperatures = "5,7,10,40,30,13,15,6,25,26,8,1,3";
 $counter = 0;
 $colder ="";
 $hotter ="";
 
-$tempArray = explode(",",$temperatures,-1);
+$tempArray = explode(",",$temperatures);
 echo "<h4>Las 5 temperaturas más frias han sido:</h4>";
 sort($tempArray);
 foreach ($tempArray as $value) {
