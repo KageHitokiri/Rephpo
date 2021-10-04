@@ -14,6 +14,7 @@ $reversedArray = $names;
 arsort($reversedArray);
 $myName = "Carlos";
 $result = array_sum($numbers);
+$arrayByColumm;
 
 echo "<h1>Carlos Ramos Iserte: Arrays</h1>";
 echo "<h4> Nombres </h4>";
@@ -27,8 +28,16 @@ print_r($extendedNames);
 
 echo createTable($extendedNames);
 
+echo "<h4>Array Indexado</h4>";
+$arrayByColumm = array_column($extendedNames, "nombre");
+print_r($arrayByColumm);
+
 echo "<h4>Suma de numeros</h4>";
 echo $result."<br>";
+
+
+
+
 
 function createTable ($array) :string {
     $table = "<h4>Tabla</h4><table border =1>";
