@@ -35,10 +35,6 @@ print_r($arrayByColumm);
 echo "<h4>Suma de numeros</h4>";
 echo $result."<br>";
 
-
-
-
-
 function createTable ($array) :string {
     $table = "<h4>Tabla</h4><table border =1>";
     

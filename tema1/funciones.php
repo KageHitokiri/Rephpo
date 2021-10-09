@@ -102,5 +102,4 @@ echo $operation(2,5,$resta);
 echo $operation(2,5,$mult);
 echo $operation(2,5,$div);
 
-
 ?>

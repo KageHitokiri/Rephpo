@@ -12,6 +12,4 @@ function createColorList($array) {
 
 echo createColorList($colors);
 
-
-
 ?>

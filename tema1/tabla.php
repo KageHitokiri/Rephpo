@@ -1,7 +1,6 @@
 <?php
 
     echo "<Table border=1>";
-
     $counter= 1;
 
     for ($n1 = 1; $n1<=10; $n1++) {

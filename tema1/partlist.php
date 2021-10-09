@@ -10,8 +10,8 @@
         }
         
     }
-    
+
     partlist($message,$array1);    
     print_r($array1);
-
+    
 ?>
