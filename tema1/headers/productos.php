@@ -14,4 +14,5 @@
         http_response_code(404);
         echo "<h1>ERROR 404</h1>";
     }
+    
 ?>
