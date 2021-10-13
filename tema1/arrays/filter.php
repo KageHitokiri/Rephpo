@@ -12,20 +12,15 @@
         "telefono" => "638765432", "email" => "norajover@hotmail.com"),
         );
     $domFilter = strtolower($_GET["dominio"]??=""); 
-    $test ="";
 
-    echo $domFilter;
-    function arrayFilter($contactos){
-        
-    }
+    $filtrados = array_filter($contactos, 
 
-    foreach ($contactos as $campo => $valor) {
-        echo $campo;
-        foreach ($valor as $es => $est) {
-            $test .=$est;
-        }
-    }
+        function($contacto) use ($domFilter){
 
-    echo $test;
+            return strpos(strtolower($contacto["email"]), $domFilter);
+
+        });
+
+    print_r($filtrados);
 
 ?>
