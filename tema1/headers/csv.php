@@ -7,6 +7,31 @@
         ['id'=>4, 'nombre' => "Arco", "precio" => 35]        
     ];
 
-    print_r($_SERVER);
+    function arrayToCSV ($array) :string {                
+        $csv = "";
+        $counter = 0;
+        foreach ($array as $value) {            
+            foreach ($value as $field => $value) {
+                $csv .= "$field;";
+                $counter++;
+            }
+            $csv .= "\n";                    
+            if ($counter!=0){
+                    break;
+            }        
+        }
+        
+        foreach ($array as $field) {            
+            foreach ($field as $value) {
+                $csv .= "$value;";
+            }
+            $csv .= "\n";                
+        }            
+        return $csv;
+    }
+
+    echo arrayToCSV($products);
+
+    header("Content-Disposition: attachment; filename=productos.csv");
 
 ?>
