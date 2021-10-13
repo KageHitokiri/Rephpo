@@ -14,11 +14,8 @@
     $domFilter = strtolower($_GET["dominio"]??=""); 
 
     $filtrados = array_filter($contactos, 
-
         function($contacto) use ($domFilter){
-
             return strpos(strtolower($contacto["email"]), $domFilter);
-
         });
 
     print_r($filtrados);
